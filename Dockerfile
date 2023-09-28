@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 # Install Cardano dependencies
 RUN apt-get update -y && \
-    apt-get install automake build-essential pkg-config git wget curl vim -y
+    apt-get install automake build-essential pkg-config jq git wget curl vim -y
 
 RUN mkdir src
 
