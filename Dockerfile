@@ -21,7 +21,7 @@ RUN wget -P /cardano-submit-api/configuration \
 RUN mkdir -p /node/ipc
 
 # Copy scripts
-COPY ./run-cardano-submit-api.sh /usr/local/bin
+COPY ./run-cardano-submit-api.sh /bin
 
 # Set executable permits
 RUN /bin/bash -c "chmod +x /bin/*.sh"
