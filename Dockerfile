@@ -10,7 +10,7 @@ RUN TAG=$(curl -s https://api.github.com/repos/input-output-hk/cardano-node/rele
     cd src && \
     wget -cO - https://github.com/input-output-hk/cardano-node/releases/download/${TAG}/cardano-node-${TAG}-linux.tar.gz > cardano-node.tar.gz && \
     tar -xvf cardano-node.tar.gz && \
-    mv cardano-submit-api /usr/local/bin
+    mv cardano-submit-api /bin
 
 # Delete src folder
 RUN rm -r /src
@@ -24,7 +24,7 @@ RUN mkdir -p /node/ipc
 COPY ./run-cardano-submit-api.sh /usr/local/bin
 
 # Set executable permits
-RUN /bin/bash -c "chmod +x /usr/local/bin/*.sh"
+RUN /bin/bash -c "chmod +x /bin/*.sh"
 
 # Run cardano-submit-api at the startup
-CMD [ "/usr/local/bin/run-cardano-submit-api.sh" ]
+CMD [ "/bin/run-cardano-submit-api.sh" ]
